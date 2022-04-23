@@ -2,16 +2,23 @@
 # Output: The maximum value that can be obtained by multiplying 
 # two different elements from the sequence.
 
-def max_pairwise_product(numbers):
-    n = len(numbers)
-    max_product = 0
-    for first in range(n):
-        for second in range(first + 1, n):
-            if numbers[first] * numbers[second] 
-            max_product = max(max_product,
-                numbers[first] * numbers[second])
+from typing import List
 
-    return max_product
+def max_pairwise_product(numbers: List) -> int:
+    n = len(numbers)
+    # find the index of the first maximum number
+    max_index1 = -1
+    for i in range(n):
+        if max_index1 == -1 or numbers[i] > numbers[max_index1]:
+            max_index1 = i
+    # find the index of the second maximum number 
+    max_index2 = -1
+    for j in range(n):
+        if (j != max_index1) and (max_index2 == -1 or numbers[j] > numbers[max_index2]):
+            max_index2 = j
+    # print(max_index1, max_index2)
+    
+    return numbers[max_index1] * numbers[max_index2]
 
 
 if __name__ == '__main__':

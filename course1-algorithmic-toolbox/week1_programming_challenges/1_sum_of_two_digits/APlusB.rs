@@ -4,7 +4,7 @@
 use std::io;
 
 fn main() -> io::Result<()> {
-    println!("Please enter 2 integers separated by a space");
+    // println!("Please enter 2 integers separated by a space");
     let mut buffer = String::new();
     io::stdin().read_line(&mut buffer)?;
     let mut words = buffer.split_whitespace();
