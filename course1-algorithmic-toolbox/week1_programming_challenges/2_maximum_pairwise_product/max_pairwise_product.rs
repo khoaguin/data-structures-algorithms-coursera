@@ -6,7 +6,6 @@ use std::io;
 
 // Get a sequence of integers from user and return a vector of those integers
 fn get_user_input() -> Result<Vec<i64>, io::Error> {
-
     let mut n_buffer = String::new();
     io::stdin().read_line(&mut n_buffer)?;
     let n: usize = n_buffer.trim().parse().unwrap();
@@ -50,8 +49,8 @@ fn maximum_pairwise_product(numbers: &Vec<i64>) -> i64 {
 }
 
 fn main() -> io::Result<()> {
-    let numbers = get_user_input()?;
+    let numbers: Vec<i64> = get_user_input()?;
     println!("{:?}", maximum_pairwise_product(&numbers));
-    
+
     Ok(())
 }
