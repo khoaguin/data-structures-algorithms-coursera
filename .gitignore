@@ -2,3 +2,6 @@ archive/
 **.out
 **scratch.**
 .vscode/
+
+# files without extensions
+/[^\.]* 

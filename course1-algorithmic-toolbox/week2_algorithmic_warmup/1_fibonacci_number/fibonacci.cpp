@@ -1,3 +1,6 @@
+// Input: An integer n >= 0
+// Output: The Fibonnaci number at position n
+
 #include <iostream>
 #include <cassert>
 
@@ -14,6 +17,8 @@
 // 5. Remove the call to test_solution, uncomment the line with a call to fibonacci_fast (and the lines reading the input),
 //    and submit it to the grader.
 
+
+// iterative solution
 int fibonacci_naive(int n) {
     if (n <= 1)
         return n;
@@ -21,11 +26,20 @@ int fibonacci_naive(int n) {
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2);
 }
 
+// iterative solution
 int fibonacci_fast(int n) {
-    // write your code here
+    int f[n+1] = {0, 1};
+    for (int i = 2; i < n+1; ++i) {
+        f[i] = f[i-1] + f[i-2];
+    }
+    // for (int i : f) {
+    //     std::cout << i << ' ';
+    // }
+    // std::cout << '\n';
 
-    return 0;
+    return f[n];
 }
+
 
 void test_solution() {
     assert(fibonacci_fast(3) == 2);
@@ -34,12 +48,12 @@ void test_solution() {
         assert(fibonacci_fast(n) == fibonacci_naive(n));
 }
 
+
 int main() {
     int n = 0;
     std::cin >> n;
-
-    std::cout << fibonacci_naive(n) << '\n';
-    //test_solution();
-    //std::cout << fibonacci_fast(n) << '\n';
+    // std::cout << fibonacci_naive(n) << '\n';
+    // test_solution();
+    std::cout << fibonacci_fast(n) << '\n';
     return 0;
 }
