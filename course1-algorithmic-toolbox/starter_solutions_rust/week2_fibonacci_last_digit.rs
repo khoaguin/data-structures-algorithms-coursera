@@ -9,6 +9,7 @@ use std::error::Error;
 
 
 fn last_digit_fibonacci_naive(n: &u32) -> u64 {
+    // your code here
     if *n == 1 {
         return 1;
     }
@@ -25,19 +26,10 @@ fn last_digit_fibonacci_naive(n: &u32) -> u64 {
 
 
 fn last_digit_fibonacci_fast(n: &u32) -> u64 {
-    if *n == 1{
-        return 1;
-    }
-    let mut sum = 0;
-    let mut previous = 0;
-    let mut current = 1;
-    for _ in 1..*n {
-        sum = (previous + current) % 10;
-        previous = (current) % 10;
-        current = sum;
-    }
-    sum
+    // your code here
+    0
 }
+
 
 // only test the first 30 sequences
 fn test_solution() {
@@ -62,8 +54,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let n = buffer.trim().parse().unwrap();
     
     // test_solution();
-    // println!("{}", last_digit_fibonacci_naive(&n));
-    println!("{}", last_digit_fibonacci_fast(&n));
+    println!("{}", last_digit_fibonacci_naive(&n));
+    // println!("{}", last_digit_fibonacci_fast(&n));
 
     Ok(())
 }
