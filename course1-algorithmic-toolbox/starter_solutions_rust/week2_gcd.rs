@@ -19,12 +19,8 @@ fn gcd_naive(a: &u64, b: &u64) -> u64 {
 
 
 fn gcd_euclid(a: &u64, b: &u64) -> u64 {
-    if *b == 0 {
-        return *a;
-    }
-    let a_prime = a % b;
-
-    gcd_euclid(&b, &a_prime)
+    // Your code here
+    0
 }
 
 
@@ -36,8 +32,7 @@ fn main() -> io::Result<()> {
     let a: u64 = words.next().unwrap().parse().unwrap();
     let b: u64 = words.next().unwrap().parse().unwrap();
 
-    // println!("{:?}", gcd_naive(&a, &b));
-    println!("{:?}", gcd_euclid(&a, &b));
+    println!("{:?}", gcd_naive(&a, &b));
 
     Ok(())
 }

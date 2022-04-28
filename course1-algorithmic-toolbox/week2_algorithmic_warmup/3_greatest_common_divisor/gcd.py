@@ -1,5 +1,5 @@
-# Uses python3
-import sys
+# Input: The two integers a, b are given in the same line separated by space.
+# Output: The greatest common divisor of a and b
 
 def gcd_naive(a, b):
     current_gcd = 1
@@ -10,7 +10,15 @@ def gcd_naive(a, b):
 
     return current_gcd
 
+
+def gcd_euclid(a, b):
+    if b == 0:
+        return a
+    a_prime = a % b
+    return gcd_euclid(b, a_prime)
+
+
 if __name__ == "__main__":
-    input = sys.stdin.read()
-    a, b = map(int, input.split())
-    print(gcd_naive(a, b))
+    a, b = map(int, input().split())
+    # print(gcd_naive(a, b))
+    print(gcd_euclid(a, b))
