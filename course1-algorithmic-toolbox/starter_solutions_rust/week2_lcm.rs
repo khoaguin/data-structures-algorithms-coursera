@@ -16,22 +16,6 @@ fn lcm_naive(a: &u64, b: &u64) -> u64 {
 }
 
 
-fn gcd(a: &u64, b: &u64) -> u64 {
-    if *b == 0 {
-        return *a;
-    }
-    let c = a % b;
-    gcd(&b, &c)
-}   
-
-
-fn lcm_fast(a: &u64, b: &u64) -> u64 {
-    let m = gcd(a, b);
-    let c = a / m;
-    c * b
-}
-
-
 fn main() -> io::Result<()> {
     // get user inputs
     let mut buffer = String::new();
@@ -40,8 +24,7 @@ fn main() -> io::Result<()> {
     let a: u64 = words.next().unwrap().parse().unwrap();
     let b: u64 = words.next().unwrap().parse().unwrap();
 
-    // println!("{:?}", lcm_naive(&a, &b));
-    println!("{:?}", lcm_fast(&a, &b));
+    println!("{:?}", lcm_naive(&a, &b));
 
     Ok(())
 }
