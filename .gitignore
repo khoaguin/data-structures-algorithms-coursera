@@ -4,4 +4,4 @@ archive/
 .vscode/
 
 # files without extensions
-/[^\.]* 
+# /[^\.]* 
