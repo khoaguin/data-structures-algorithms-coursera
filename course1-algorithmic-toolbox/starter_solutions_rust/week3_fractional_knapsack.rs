@@ -10,7 +10,6 @@
 
 use std::io;
 use std::error::Error;
-use std::cmp;
 
 
 fn get_user_input() -> Vec<u32> {
@@ -24,48 +23,17 @@ fn get_user_input() -> Vec<u32> {
 }
 
 
-fn most_expensive_index(values: &Vec<u32>, weights: &Vec<u32>) -> usize {
-    let mut max_index = 0;
-    let mut most_expensive: f64 = -1.0;
-    for (i, v) in values.iter().enumerate() {
-        let cost: f64 = (*v as f64) / (weights[i] as f64);
-        if cost > most_expensive {
-            max_index = i;
-            most_expensive = cost;
-        }
-    }
-    
-    max_index
-}
-
-
-fn get_optimal_value(capacity: &u32, values: &Vec<u32>, weights: &Vec<u32>) -> f64 {
-    // Idea: Get the most expensive item first until the bag is full
-    // Base case
-    if *capacity == 0 || weights.len() == 0 {
-        return 0.0;
-    }
-    // Recursive case
-    let m = most_expensive_index(&values, &weights);
-    let amount_taken = cmp::min(capacity, &weights[m]);
-    let value_taken: f64 = (*amount_taken as f64) * (values[m] as f64 / weights[m] as f64);
-    // Remove the taken item from weights and values
-    let new_capacity: u32 = capacity - amount_taken;
-    let mut new_weights: Vec<u32> = weights.to_vec();
-    new_weights.remove(m);
-    let mut new_values: Vec<u32> = values.to_vec();
-    new_values.remove(m);
-
-    value_taken + get_optimal_value(&new_capacity, &new_values, &new_weights)
+fn get_optimal_value(capacity: &u32, values: &Vec<u32>, weights: &Vec<u32>) -> f32{
+    // your code here
+    0.0
 }
 
 
 pub fn main() -> Result<(), Box<dyn Error>> {
-    // get the first input line
     let inp = get_user_input();
     let n = inp[0];
     let capacity = inp[1];
-    // get the next n lines
+
     let mut values: Vec<u32> = Vec::new();
     let mut weights: Vec<u32> = Vec::new();
     let mut i = n;
@@ -76,7 +44,7 @@ pub fn main() -> Result<(), Box<dyn Error>> {
         i = i - 1;
     }
 
-    println!("{:.10}", get_optimal_value(&capacity, &values, &weights));
+    println!("{:.4}", get_optimal_value(&capacity, &values, &weights));
 
     Ok(())
 }
