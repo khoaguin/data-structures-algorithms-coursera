@@ -5,3 +5,4 @@ archive/
 
 # files without extensions
 # /[^\.]* 
+**/target/
