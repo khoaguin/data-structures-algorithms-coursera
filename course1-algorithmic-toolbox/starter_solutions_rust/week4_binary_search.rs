@@ -1,6 +1,6 @@
 // Input: The first two lines of the input contain an integer n and a sequence 
 //        a0 < a1 < · · · < an − 1 of n distinct positive integers in increasing order. 
-//        The next two line contain an integer k and k positive integers b0, b1, . . . , bk − 1.
+//        The next two lines contain an integer k and k positive integers b0, b1, . . . , bk − 1.
 // Output: For all i from 0 to k − 1, output an index 0 ≤ j ≤ n − 1 of the first occurrence of 
 //         bi (i.e., aj = bi) or −1 if there is no such index
 
